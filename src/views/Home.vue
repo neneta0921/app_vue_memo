@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul v-for="memo in memo_lists" :key="memo.id">
+      <li>{{ memo.body }}</li>
+    </ul>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<style scoped>
+li {
+  list-style: none;
+}
+</style>>
 
+<script>
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "home",
+  computed: {
+    memo_lists: function() {
+      return this.$store.state.memos.slice().reverse();
+    }
   }
 }
 </script>
