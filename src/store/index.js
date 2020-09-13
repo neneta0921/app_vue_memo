@@ -8,5 +8,13 @@ export default new Vuex.Store({
         memos: [
             {id: 1, body: 'This is sample.'}
         ]
+    },
+    mutations: {
+        saved(state, memo) {
+            // 現在の最大値のIDを取り出して、新しいIDを割り振る
+            var max = state.memos[state.memos.length - 1].id;
+            memo.id = max + 1;
+            state.memos.push(memo);
+        }
     }
 })

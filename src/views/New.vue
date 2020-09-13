@@ -31,7 +31,9 @@ export default {
   },
   methods: {
     save: function() {
-      alert('Memo is saved');
+      this.$store.commit("saved", {
+        body: this.memoBody
+      });
       this.$router.push("/");
     }
   }
