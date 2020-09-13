@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-    <h2>New Memo</h2>
+    <Header>New Memo</Header>
     <textarea name="memo" v-model="memoBody"></textarea>
     <div>
       <button class="button" @click="save">保存</button>
@@ -9,8 +9,12 @@
 </template>
 
 <script>
+import Header from "@/components/Header.vue"
 export default {
   name: "new",
+  components: {
+    Header
+  },
   data: function() {
     return {
       memoBody: ""

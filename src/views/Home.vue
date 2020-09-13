@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Header>My Memos</Header>
     <ul v-for="memo in memo_lists" :key="memo.id">
       <li>
         <router-link :to="{name: 'Edit', params: { id: memo.id }}">
@@ -35,8 +36,12 @@ button {
 </style>
 
 <script>
+import Header from "@/components/Header.vue"
 export default {
   name: "home",
+  components: {
+    Header
+  },
   computed: {
     memo_lists: function() {
       return this.$store.state.memos.slice().reverse();
