@@ -15,6 +15,10 @@ export default new Vuex.Store({
             var max = state.memos[state.memos.length - 1].id;
             memo.id = max + 1;
             state.memos.push(memo);
+        },
+        updated(state, data) {
+            let updated_memo = state.memos.find(memo => memo.id == data.id);
+            updated_memo.body = data.body
         }
     }
 })
